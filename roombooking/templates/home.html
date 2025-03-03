@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Room Booking</h1>
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}!</p>
+        <p>You can now <a href="{% url 'booking_create' %}">create a booking</a> or view <a href="{% url 'booking_list' %}">your bookings</a>.</p>
+    {% else %}
+        <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to make a booking.</p>
+    {% endif %}
+{% endblock %}
+
